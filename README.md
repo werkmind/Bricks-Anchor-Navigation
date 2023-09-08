@@ -4,6 +4,17 @@ For Bricks Builder enthusiasts who've been grappling with local ID (anchor) navi
 <br><br>
 <b>What it Fixes:</b>
 
+<h3>This is a normal Wordpress Menu with Local (Anchor) Links</h3>
+<img src="https://github.com/werkmind/Bricks-Anchor-Navigation/blob/main/wpmenu.png" height="300px"/>
+The Problem: If the Anchor IDs are on the same Page, all appear Active in Bricks, even if they are not in the viewport.
+<h6>Without the Plugin:</h6>
+<img src="https://github.com/werkmind/Bricks-Anchor-Navigation/blob/main/without.jpg" height="300px"/>
+<br><hl></hl>
+<br>
+<h6>With the Plugin:</h6>
+<img src="https://github.com/werkmind/Bricks-Anchor-Navigation/blob/main/withplugin.gif" width="100%"/>
+<p><i>The Plugin updates the URL on Scroll. Multipage Navigation is fixed. Anchor Links Menu is fixed.</i></p><br>
+
 <ul>
   <li><b>Erratic URL Behavior:</b><br> Without this plugin, navigating between sections doesn't update the URL, leaving users and site managers in a navigation limbo.</li>
 <br><br>
