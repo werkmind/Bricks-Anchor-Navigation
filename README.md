@@ -36,8 +36,8 @@ Don't let these common glitches disrupt your site's navigation harmony. With the
 
 <h4>1. Download the Plugin</h4>
 <ul>
-    <li>Click on the 'Code' button on the <a href="https://github.com/werkmind/Bricks-Anchor-Navigation/" target="_blank">Bricks Anchor-Menu Navigator GitHub repository</a>.</li>
-    <li>From the dropdown menu, select 'Download ZIP'.</li>
+    <li>Click on the 'Release' button on the <a href="https://github.com/werkmind/Bricks-Anchor-Navigation/" target="_blank">Bricks Anchor-Menu Navigator GitHub repository</a>.</li>
+    <li>Download the latest release zip.</li>
     <li>Save the ZIP file to your computer.</li>
 </ul>
 
