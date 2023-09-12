@@ -62,4 +62,110 @@ Don't let these common glitches disrupt your site's navigation harmony. With the
     <br> for example: #link1 (anchor link of the ID)</li>
     <li>Update the menu item selector if it's different from the default <code>.bricks-nav-menu li</code>.</li>
 </ul>
+<br><br><br><br><br>
+<h3>If you want, you can also use this as a Code-Snippet.</h3>
+<p>Just paste this Code into <code>Bricks Builder > Settings > Custom Code > Body Footer Scripts</code></p>
+
+```js
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  //Change this to choose another CSS Selector
+    const menuItems = document.querySelectorAll(".bricks-nav-menu li");
+  //Change this to select the Anchors that this script listens to
+    const validHashes = ['#leistungen', '#link1', '#link2', '#link3'];
+
+//Do not change any other code from now on if everything works
+    let isScrolling = false;
+    let targetHashWhileScrolling = null;
+
+    function setActiveClass(anchor) {
+        menuItems.forEach(menuItem => {
+            const link = menuItem.querySelector("a");
+            const expectedHref = window.location.origin + window.location.pathname + anchor;
+
+            if (link && link.getAttribute("href") === expectedHref) {
+                menuItem.classList.add("current-menu-item");
+            } else {
+                menuItem.classList.remove("current-menu-item");
+            }
+        });
+    }
+
+    function getSectionInView() {
+        for(let hash of validHashes) {
+            const section = document.querySelector(hash);
+            if (!section) continue;
+
+            const rect = section.getBoundingClientRect();
+              //Change the Factor 0.2 for more space from top to listen to anchors - this is 20%
+            if (rect.top >= 0 && rect.top <= window.innerHeight * 0.2) {
+                return hash;
+            }
+        }
+        return null;
+    }
+
+    window.addEventListener('scroll', function() {
+        const currentSection = getSectionInView();
+        
+        if (isScrolling) {
+            if (currentSection && currentSection === targetHashWhileScrolling) {
+                isScrolling = false;
+                sessionStorage.removeItem('programmaticScroll');
+                targetHashWhileScrolling = null;
+                history.pushState({}, '', currentSection);
+                setActiveClass(currentSection);
+            }
+        } else if (currentSection && !isScrolling) {
+            history.pushState({}, '', currentSection);
+            setActiveClass(currentSection);
+        }
+    });
+
+    menuItems.forEach(menuItem => {
+        const link = menuItem.querySelector("a");
+        link.addEventListener("click", function(e) {
+            const href = link.getAttribute("href");
+            const targetHash = href.includes('#') ? '#' + href.split('#')[1] : '';
+
+            if (validHashes.includes(targetHash)) {
+                e.preventDefault();
+
+                if (window.location.pathname === '/') {
+                    const targetSection = document.querySelector(targetHash);
+                    if (targetSection) {
+                        isScrolling = true;
+                        targetHashWhileScrolling = targetHash;
+                        window.scrollTo({
+                            top: targetSection.offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                } else {
+                    sessionStorage.setItem('programmaticScroll', targetHash);
+                    window.location.href = window.location.origin + "/" + targetHash;
+                }
+            } else {
+                window.location.href = href;
+            }
+        });
+    });
+
+    const initialHash = window.location.hash;
+    if (validHashes.includes(initialHash)) {
+        if (sessionStorage.getItem('programmaticScroll') === initialHash) {
+            isScrolling = true;
+            targetHashWhileScrolling = initialHash;
+        }
+        setActiveClass(initialHash);
+    } else {
+        setActiveClass("");
+    }
+});
+</script>
+
+```
+
+
 
