@@ -1,5 +1,5 @@
 <h1>Bricks-Anchor-Navigation</h1>
-Last tested on Bricks Builder 1.9.9
+Last tested on Bricks Builder 1.9.9 (Snippet)
 <h2>The perfect Bricks Builder Addon for Local Navigation Menus (Anchor Links)</h2><br>
 For Bricks Builder enthusiasts who've been grappling with local ID (anchor) navigation woes, the Bricks Anchor-Menu Navigator is here to revitalize your web building experience.
 <br><br>
