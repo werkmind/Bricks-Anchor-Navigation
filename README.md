@@ -61,6 +61,10 @@ Don't let these common glitches disrupt your site's navigation harmony. With the
     <li>Specify which anchor links the plugin should listen to.
     <br> for example: #link1 (anchor link of the ID)</li>
     <li>Update the menu item selector if it's different from the default <code>.bricks-nav-menu li</code>.</li>
+    <br> IMPORTANT:
+    <li>The Links in the Menu Structure must include the "root" domain aswell for the plugin to work.</li>
+  <img src="https://github.com/user-attachments/assets/07c8be46-4602-4388-9efd-19d8d3f25740" width="100%"/>
+
 </ul>
 <br><br><br><br><br>
 <h3>If you want, you can also use this as a Code-Snippet.</h3>
